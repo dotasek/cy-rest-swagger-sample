@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.cytoscape.rest.cy-rest-swagger-sample
+Bundle-Name: Sample App - CyREST Swagger Resource
+Bundle-Version: 1.0
+Built-By: davidotasek
+Bundle-ManifestVersion: 2
+Bnd-LastModified: 1490644868636
+Bundle-Activator: org.cytoscape.cyrestswaggersample.internal.CyActivat
+ or
+Import-Package: io.swagger.annotations;version="[1.5,2)",javax.ws.rs;v
+ ersion="[2.0,3)",org.cytoscape.service.util;version="[3.3,4)",org.osg
+ i.framework;version="[1.5,2)"
+Created-By: Apache Maven Bundle Plugin
+Tool: Bnd-1.15.0
+Build-Jdk: 1.8.0_111
+
