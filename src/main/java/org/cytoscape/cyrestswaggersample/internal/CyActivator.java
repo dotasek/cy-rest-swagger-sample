@@ -15,7 +15,9 @@ public class CyActivator extends AbstractCyActivator {
 	
 	public void start(BundleContext bc) 
 	{
-		System.out.println("CyREST Sample start");
+		/*This is where we register our resources with the OSGi context. After this is done, CyREST will inspect
+		GreetingResourceImpl for JAX-RS annotations, and add it as a REST endpoint if they are present and valid.
+		*/
 		try {
 			registerService(bc, new GreetingResourceImpl(), GreetingResource.class, new Properties());
 		}
