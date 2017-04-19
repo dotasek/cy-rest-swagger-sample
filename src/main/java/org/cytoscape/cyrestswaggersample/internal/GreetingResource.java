@@ -18,20 +18,25 @@ import javax.ws.rs.core.MediaType;
 
 import io.swagger.annotations.Api;
 
-/* The Api annotation indicates a Swagger resource.  */
-/*
- * The Path annotation indicates the root URI path for any methods in the class. The greeting() method, for example,
- * appears in the path /swaggergreeting
+/* - The Api annotation indicates a Swagger resource.
+ *  
+ * - The Path annotation indicates the root URI path for any methods in the class. The greeting() method, for example,
+ *   appears in the path '/swaggergreeting/v1'. Note that for your App to avoid collisions with core Cytoscape REST and
+ *   other apps, all of your paths should start with a unique identifier ('swaggergreeting') and a version number 
+ *   ('v1'). If your path is the same as another that currently exists on the server, CyREST will be unable to process
+ *   endpoints.
  */
 @Api
-@Path("/swaggergreeting")
+@Path("/swaggergreeting/v1")
 public interface GreetingResource {
 
-	/* The GET annotation indicates that this is an HTTP GET method. This one of several possible HTTP methods (GET, 
-	 * PUT, POST, DELETE, PATCH). */
-	/* The Produces annotation indicates that we are returning JSON data. Note that in this case, the POJO SimpleMessage
-	 * is returned; CyREST will automatically translate correctly formatted POJOs into JSON. See SimpleMessage for 
-	 * details on correct formatting. */
+	/* - The GET annotation indicates that this is an HTTP GET method. This one of several possible HTTP methods (GET, 
+	 *   PUT, POST, DELETE, PATCH). 
+	 * 
+	 * - The Produces annotation indicates that we are returning JSON data. Note that in this case, the POJO 
+	 *   SimpleMessage is returned; CyREST will automatically translate correctly formatted POJOs into JSON. See 
+	 *   SimpleMessage for details on correct formatting. 
+	 */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public SimpleMessage greeting();
