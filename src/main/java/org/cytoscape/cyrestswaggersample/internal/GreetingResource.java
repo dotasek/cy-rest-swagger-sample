@@ -24,7 +24,7 @@ import io.swagger.annotations.Api;
  *   appears in the path '/swaggergreeting/v1'. Note that for your App to avoid collisions with core Cytoscape REST and
  *   other apps, all of your paths should start with a unique identifier ('swaggergreeting') and a version number 
  *   ('v1'). If your path is the same as another that currently exists on the server, CyREST will be unable to process
- *   endpoints.
+ *   it.
  */
 @Api
 @Path("/swaggergreeting/v1")
