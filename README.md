@@ -65,15 +65,62 @@ This is the dependency for Swagger annotations:
 
 To add an endpoint to CyREST, you must register an instance of a Java Object that has methods annotated using JAX-RS.
 
-In this Sample App, all the necessary classes to illustrate this, with inline documentation explaining the annotations used, can be found in the package ```org.cytoscape.cyrestswaggersample.internal``` 
+In this Sample App, all the necessary classes to illustrate this, with inline documentation explaining the annotations used, can be found in the package ```org.cytoscape.cyrestswaggersample.internal```. 
 
 The ```GreetingResource``` interface contains our JAX-RS annotations, which its implementation, ```GreetingResourceImpl```, inherits.
 
-We register an instance of ```GreetingResourceImpl``` in ```CyActivator```. This exposes the resource to Cytoscape's OSGi infrastructure, where it can be recognized by CyREST. The resulting endpoint will be available at ```localhost:1234/swaggergreeting```. You can see the output of this endpoint by entering this address into a web browser.
+We register an instance of ```GreetingResourceImpl``` in ```CyActivator```. This exposes the resource to Cytoscape's OSGi infrastructure, where it can be recognized by CyREST.
+
+When we deploy our app to Cytoscape by installing it, CyREST will recognize the GreetingResource service as an endpoint, and it will become available at the URL below: 
+
+```
+http://localhost:1234/swaggergreeting
+```
+
+You can see the output of this endpoint by entering this address into a web browser. The output should look like the following:
+
+```
+{"message":"Hello!"}
+```
+
+Note that this JSON is automatically generated from the ```SimpleMessage``` our method returned. One of the key advantages of using JAX-RS is that serialization of Java objects to JSON and other formats can be handled automatically in many cases.
 
 ### Adding Swagger Documentation
 
-GreetingResource includes a single Swagger tag ```@Api```. This is the minimum requirement for including a class and its methods in Swagger. Swagger can introspect your classes and methods to automatically generate documentation, but 
+Swagger is a framework for documenting and developing in the REST world. CyREST uses Swagger annotations to generate a description of the CyREST API and all recognized App resources, such as our sample app.
+
+GreetingResource includes a single Swagger tag ```@Api```. This is the minimum requirement for including a class and its methods in Swagger.
+
+To see the resulting Swagger document, you can load the URL below:
+
+```
+http://localhost:1234/v1/swagger.json
+```
+
+If our sample app has loaded, we should see the following somewhere in the returned JSON:
+
+```
+/swaggergreeting" : {
+      "get" : {
+        "operationId" : "greeting",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/SimpleMessage"
+            },
+            "headers" : { }
+          }
+        }
+      }
+    }
+```
+
+This data can be made more useful by importing it into a application that accepts Swagger JSON, such as the [Swagger UI](http://swagger.io/swagger-ui/).
+
+The Swagger UI provides an interface that not only describes each endpoint in an easy-to-read manner, but also allows the user to see example arguments and data structures. It can also send queries directly to the application. If you want to explore this functionality, you can use Swagger UI's Live Demo with CyREST's generated Swagger JSON. To do this, first go to the [Live Demo](http://petstore.swagger.io/). Then, enter the address for the CyREST JSON in the text field at the top of the page (```http://localhost:1234/v1/swagger.json```) and click on '''Explore'''. You should then see a page that indexes all of CyREST's various endpoints, including ours from our app.
 
 ## Next Steps
 
@@ -82,6 +129,7 @@ You can see some more uses and of JAX-RS and Swagger for Cytoscape in the [CyRES
 JAX-RS and Swagger annotations provide functionality well beyond their use in this app. Additional documentation on these can be found below:
 
 [JAX-RS Application, Resources and Sub-Resources](https://jersey.java.net/documentation/latest/jaxrs-resources.html)
+
 [Swagger Annotations](https://github.com/swagger-api/swagger-core/wiki/Annotations-1.5.X)
 
 
