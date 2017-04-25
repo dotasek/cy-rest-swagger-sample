@@ -8,6 +8,8 @@ It is recommended to be familiar with concepts in [Cytoscape 3.0 App Development
 
 ## Notes
 
+This sample app uses Java comments to describe particular details in-code. General project setup and an overview of key points is provided below.
+
 ### Necessary Dependencies
 
 Within your POM files, you will need to add two dependencies. It is important that you set the scope for these dependencies to 'provided'. This ensures that CyREST and your App are using the same annotations; using a scope aside from 'provided' could cause your App to import annotations that CyREST cannot recognize.
