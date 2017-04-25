@@ -1,6 +1,6 @@
 # CyREST Sample App with Swagger
 
-This is a simple 'Hello World' style app intended to demonstrate registering endpoints with CyREST.
+This is a simple 'Hello World' style app intended to demonstrate registering endpoints with CyREST. This provides only a basic overview of registration; users interested in implementing REST endpoints via CyREST are **strongly urged** to follow up this sample by exploring the [Next Steps](#next-steps) portion of this document.
 
 ## Prerequisites
 
@@ -124,7 +124,7 @@ The Swagger UI provides an interface that not only describes each endpoint in an
 
 ## Next Steps
 
-You can see some more uses and of JAX-RS and Swagger for Cytoscape in the [CyREST Best Practices Sample App](https://github.com/dotasek/cyrest-best-practices-sample).
+It is **strongly recommended** to follow up this Sample with the [CyREST Best Practices Sample App](https://github.com/dotasek/cyrest-best-practices-sample), which demonstrates ways to avoid errors and make your CyREST App easier to use and maintain. 
 
 JAX-RS and Swagger annotations provide functionality well beyond their use in this app. Additional documentation on these can be found below:
 
