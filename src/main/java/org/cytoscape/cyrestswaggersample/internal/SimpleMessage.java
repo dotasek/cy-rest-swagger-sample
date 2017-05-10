@@ -16,31 +16,30 @@ package org.cytoscape.cyrestswaggersample.internal;
  * If these aren't followed, you will likely get the dreaded Internal Server Error when you access a resource URL that 
  * uses your object.
  */
-public class SimpleMessage 
-{
+public class SimpleMessage {
+	
 	String message;
 	
-	//Super important. Always have a default constructor for anything returned by a JAX-RS annotated method.
-	public SimpleMessage()
-	{
+	/*Super important. Since we have implemented an explicit constructor below, Java will not generate a default, no-arg
+	  constructor. Most JSON processors require a no-arg constructor to produce JSON from POJOs. Hence, we need to 
+	  create one.
+	*/
+	public SimpleMessage() {
 		
 	}
 	
 	//Not necessary, but convenient.
-	public SimpleMessage(String message)
-	{
+	public SimpleMessage(String message) {
 		this.message = message;
 	}
 	
 	//Necessary to expose message
-	public String getMessage()
-	{
+	public String getMessage() {
 		return message;
 	}
 	
 	//Necessary to expose message	
-	public void setMessage(String message)
-	{
+	public void setMessage(String message) {
 		this.message = message;
 	}
 }
